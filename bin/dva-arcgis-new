@@ -9,8 +9,8 @@ const error = chalk.red;
 
 program
   .usage('[options] appName')
-  .option('--demo', 'Generate a dead simple project for quick prototype')
-  .option('--no-install', 'Disable npm install after files created')
+  .option('--full', 'Generate a full gis project')
+  .option('--no-install', 'Install dependencies after boilerplate, default: true')
   .parse(process.argv);
 
 if (!program.args[0]) {

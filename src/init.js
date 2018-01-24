@@ -18,8 +18,8 @@ function success(message) {
   console.error(chalk.green(message));
 }
 
-function init({ demo, install }) {
-  const type = demo ? 'demo' : 'app';
+function init({ full, install }) {
+  const type = full ? 'full' : 'app';
   const cwd = join(__dirname, '../boilerplates', type);
   const dest = process.cwd();
   const projectName = basename(dest);

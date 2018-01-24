@@ -1,8 +1,9 @@
 
 module.exports = function (webpackConfig, env) {
+  webpackConfig.output.libraryTarget = 'amd';
+
   webpackConfig.module.rules.forEach((r) => {
     if (r.loader === 'babel') {
-      r.options.plugins.push('transform-runtime');
       r.options.plugins.push(['import', { libraryName: 'antd', style: 'css' }]);
       if (env === 'development') {
         r.options.plugins.push('dva-hmr');
@@ -10,7 +11,7 @@ module.exports = function (webpackConfig, env) {
     }
   });
 
-  webpackConfig.output.libraryTarget = 'amd';
+
   webpackConfig.externals = [
     function (context, request, callback) {
       // Every module prefixed with "global-" becomes external

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArcGIS Full Demo</title>
+  <link rel="shortcut icon" type="image/ico" href="./favicon.ico">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.6/esri/css/main.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    var dojoConfig = {
+      has: {
+        "esri-promise-compatibility": 1
+      }
+    };
+  </script>
+  <script>
+    if (navigator.serviceWorker != null) {
+      navigator.serviceWorker.register('sw.js')
+        .then(function (registration) {
+          console.log('Registered events at scope: ', registration.scope);
+        });
+    }
+  </script>
+  <script src="./config/config.js"></script>
+  <script src="https://js.arcgis.com/4.6/"></script>
+  <script>
+    require(['./index.js']);
+  </script>
+</body>
+
+</html>

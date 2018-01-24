@@ -26,12 +26,31 @@ function findNpm() {
   throw new Error('please install npm');
 }
 
+function findYarn() {
+  var yarn = process.platform === 'win32' ? 'yarn.cmd' : 'yarn';
+  try {
+    which.sync(yarn);
+    console.log('Find yarn installed. Use yarn first.');
+    return yarn;
+  } catch (e) { }
+}
+
 export default function (done) {
-  const npm = findNpm();
-  runCmd(which.sync(npm), ['install'], function () {
-    runCmd(which.sync(npm), ['install', 'dva', '--save'], function () {
-      console.log(npm + ' install end');
-      done();
+  const yarn = findYarn();
+  if (yarn) {
+    runCmd(which.sync(yarn), [], function () {
+      runCmd(which.sync(yarn), ['add', 'dva'], function () {
+        console.log(yarn + ' install end');
+        done();
+      });
     });
-  });
+  } else {
+    const npm = findNpm();
+    runCmd(which.sync(npm), ['install'], function () {
+      runCmd(which.sync(npm), ['install', 'dva', '--save'], function () {
+        console.log(npm + ' install end');
+        done();
+      });
+    });
+  }
 };

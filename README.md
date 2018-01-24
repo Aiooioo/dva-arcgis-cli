@@ -42,6 +42,7 @@ $ dva-arcgis new myapp --no-install
 - >Upgrade [roadhog][1] to the latest version 2.x
 - >Replace [esri-loader][2] with webpack **amd** mode
 - >Apply redux middleware for map initialization, following [Esri/react-redux-js4][5]
+- >Using Google [sw-toolbox][6] for ArcGIS JSAPI caching, following [arcgis-service-worker][7]
 - >Using raw ES6+
 
 * `--no-install` -- Disable npm install after files created
@@ -64,3 +65,5 @@ dva-arcgis-cli use [roadhog][1] for build and server, view [roadhog#Configuratio
 [3]: https://github.com/dvajs/dva-cli
 [4]: https://js.arcgis.com
 [5]: https://github.com/Esri/react-redux-js4
+[6]: https://github.com/GoogleChromeLabs/sw-toolbox
+[7]: https://github.com/Aiooioo/arcgis-service-worker

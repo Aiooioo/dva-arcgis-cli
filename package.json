@@ -1,6 +1,6 @@
 {
   "name": "dva-arcgis-cli",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Extend the dva command line utility for ArcGIS JSAPI.",
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib",
